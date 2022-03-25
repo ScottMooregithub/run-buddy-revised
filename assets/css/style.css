@@ -64,7 +64,8 @@ header nav ul li a {
   padding: 0%;
 }
 
-h2 {
+h2,
+p {
   color: #39a6b2;
 }
 
