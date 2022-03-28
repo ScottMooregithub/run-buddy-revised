@@ -1,13 +1,19 @@
+:root {
+  --primary-color: #fce138;
+  --secondary-color: #024e76;
+  --tertiary-color: #39a6b2;
+}
+
 body {
   /* Im a CSS comment */
-  columns: #39a6b2;
+  columns: var(--tertiary-color);
   font-family: Helvetica, Arial, sans-serif;
 }
 
 /* apply styles to <header> */
 header {
   padding: 20px 35px;
-  background-color: #39a6b2;
+  background-color: var(--tertiary-color)
 }
 
 /* applies 20px to top and bottom and 35px to right and left*/
@@ -22,6 +28,7 @@ header {
 
 /* Explicitly list the side it should be applies to*/
 header {
+  z-index: 9999;
   background-attachment: fixed;
   background-position: 80%;
   background-image: url("../images/hero-bg.jpg");
@@ -43,17 +50,17 @@ header h1 {
 
   font-weight: bold;
   font-size: 36px;
-  color: #fce138;
+  color: var(--primary-color);
   margin: 0;
 }
 
 header a {
-  color: #fce138;
+  color: var(--primary-color);
 }
 
 header a {
   text-decoration: none;
-  color: #fce138;
+  color: var(--primary-color);
 }
 
 header nav {
@@ -76,8 +83,8 @@ header nav ul li a {
 }
 
 header nav ul li a:hover {
-  background-color: #fce138;
-  color: #024e76;
+  background-color:var(--primary-color);
+  color: var(--secondary-color);
   border-radius: 15px;
   text-shadow: none;
 }
@@ -96,13 +103,13 @@ footer {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  background-color: #fce138;
+  background-color: var(--primary-color);
   width: 100%;
   padding: 40px 35px;
 }
 
 footer h2 {
-  color: #024e76;
+  color: var(--secondary-color);
   font-size: 30px;
   margin: 0;
 }
@@ -113,7 +120,7 @@ footer div {
 }
 
 footer a {
-  color: #024e76;
+  color: var(--secondary-color);
 }
 
 * {
@@ -157,7 +164,7 @@ section {
   text-shadow: 0 0 10px rgba(0, 0, 0.5);
   font-style: italic;
   font-size: 55px;
-  color: #fce138;
+  color: var(--primary-color);
 }
 
 /*hero-form styling*/
@@ -171,8 +178,8 @@ section {
   flex-wrap: wrap;
   background-color: rgba(252, 225, 56, 0.8);
   padding: 20px;
-  color: #024e76;
-  border: 3px solid #024e76;
+  color: var(--secondary-color);
+  border: 3px solid var(--secondary-color);
   margin: 0px;
 }
 .hero-form h3 {
@@ -187,11 +194,11 @@ section {
 .form-input {
   background-color: rgba(255,255,255,0.75);
   border-radius: 10px;
-  border: 1px solid #024e76;
+  border: 1px solid var(--secondary-color);
   display: block;
   padding: 7px 15px;
   font-size: 16px;
-  color: #024e76;
+  color: var(--secondary-color);
   width: 100%;
   margin-bottom: 15px;
 }
@@ -202,29 +209,89 @@ section {
 
 .hero-form button {
   border-radius: 10px;
-  color: #fce138;
-  background-color: #024e76;
+  color: var(--primary-color);
+  background-color: var(--secondary-color);
   border: none;
   padding: 10px 20px;
   font-size: 16px;
 }
 
 .hero-form button:hover {
-  background-color: #39a6b2;
+  background-color: var(--tertiary-color);
 }
+
+.checkbox-wrapper input, .radio-wrapper input {
+  opacity: 0;
+}
+.checkbox-wrapper label, .radio-wrapper label {
+  position: relative;
+  left: 10px;
+  margin: 10px;
+  line-height: 1.6;
+}
+
+.checkbox-wrapper label::before, .radio-wrapper label::before {
+  content: "";
+  height: 20px;
+  width: 20px;
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid var(--secondary-color);
+  position: absolute;
+  top: -4px;
+  left: -30px;
+}
+ .radio-wrapper label::before {
+   border-radius: 50%;
+ }
+
+
+ .radio-wrapper label::after {
+   content: "";
+   width: 20px;
+   height: 20px;
+   border-radius: 50%;
+   background: var(--secondary-color);
+   position: absolute;
+   left: -29px;
+   top: -3px;
+   background-image: radial-gradient(circle, #39a6b2, #024e76);
+ }
+
+ .checkbox-wrapper label::after {
+   transform: rotate(-58deg);
+   content: "";
+   height: 6px;
+   width: 14px;
+   border-left: 2px solid #024e76;
+   border-bottom: 2px solid #024e76;
+   position: absolute;
+   left: -26px;
+   top: 1px;
+ }
+
+ .checkbox-wrapper input + label::after,
+  .radio-wrapper input + label::after {
+content: none;
+ }
+
+ .checkbox-wrapper input:checked + label::after,
+ .radio-wrapper input:checked + label::after {
+   content: "";
+ }
+
 /* HERO STYLES END*/
 
 .intro p {
   text-align: center;
   line-height: 1.7;
-  color: #39a6b2;
+  color: var(--tertiary-color);
   width: 80%;
   font-size: 20opx;
   margin: 0 auto;
 }
 
 .steps {
-  background-color: #fce138;
+  background-color: var(--primary-color);
 }
 
 .section title {
@@ -233,11 +300,11 @@ section {
   border-bottom: 3px solid;
 }
 .primary-border {
-  border-color: #fce138;
+  border-color: var(--primary-color);
 }
 
 .secondary-border {
-  border-color: #39a6b2;
+  border-color: var(--tertiary-color);
 }
 
 .step {
@@ -257,7 +324,7 @@ section {
 
 .step h3 {
   flex: 1 30%;
-  color: #39a6b2;
+  color: var(--tertiary-color);
   font-size: 46px;
 }
 
@@ -273,14 +340,14 @@ section {
 }
 
 .step-text p {
-  color: #39a6b2;
+  color: var(--tertiary-color);
   font-size: 18px;
 }
 
 .step-text h4 {
   font-size: 26px;
   line-height: 1.5;
-  color: #024e76;
+  color: var(--secondary-color);
 }
 .step-img {
   flex: 1 12%;
@@ -301,8 +368,8 @@ section {
 
 .trainer {
   margin: 20px;
-  background: #024e76;
-  color: #fce138;
+  background: var(--secondary-color);
+  color: var(--primary-color);
   flex: 1;
 }
 .trainer img {
@@ -342,14 +409,14 @@ section {
   padding-bottom: 20px;
   border-bottom: 3px solid;
   margin-bottom: 0 auto 35px auto;
-  color: #024e76;
+  color: var(--secondary-color);
 }
 /* Reach out styles start*/
 .contact {
-  background: #024e76;
+  background: var(--secondary-color);
 }
 .contact h2 {
-  color: #fce138;
+  color: var(--primary-color);
 }
 
 .contact-info {
@@ -375,7 +442,7 @@ section {
 }
 
 .contact-info h3 {
-  color: #fce138;
+  color: var(--primary-color);
   font-size: 32px;
 }
 
@@ -395,7 +462,7 @@ section {
   display: block;
   padding: 7px 15px;
   font-size: 16px;
-  color: #024e76;
+  color: var(--secondary-color);
   width: 100%;
   margin-bottom: 15px;
   margin-top: 5px;
@@ -410,20 +477,20 @@ section {
   border-radius: 10px;
   width: 100px;
   border: none;
-  background: #fce138;
-  color: #024e76;
+  background: var(--primary-color);
+  color: var(--secondary-color);
   text-align: center;
   padding: 15px 0;
   font-size: 16px;
 }
 
 .contact-form button:hover {
-  color: #fce138;
+  color: var(--primary-color);
   background: #39a6b2;
 }
 
 .contact-info a {
-  color: #fce138;
+  color: var(--primary-color);
 }
 /* Reach out styles end*/
 
